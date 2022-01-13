@@ -30,17 +30,17 @@ function handleCreateNewTask() {
 }
 
   function handleToggleTaskCompletion(id: number) {
-    const doneTasks = tasks.map(task => task.id === id ? {
-      ...task,
-      isComplete: !task.isComplete
-    } : task ); 
+    const doneTasks = tasks.map(task => task.id === id ? { // se a task id for igual a id retorna objeto
+      ...task, // todos os dados da task
+      isComplete: !task.isComplete  // setando o isComplete para o seu valor contrario (se tiver incompleto fica completo e vice versa)
+    } : task ); // caso o id for diferente de task.id, só fica o valor original mesmo
 
-    setTasks(doneTasks);
+    setTasks(doneTasks); // e aí seto as informacoes no estado
   }
 
   function handleRemoveTask(id: number) {
-    const filterTasks = tasks.filter(task => task.id !== id);
-    setTasks(filterTasks);
+    const filterTasks = tasks.filter(task => task.id !== id); // filtrando apenas o id da task selecionada nao excluindo as outras
+    setTasks(filterTasks); // setando essas informacoes para o estado
   }
 
   return (
