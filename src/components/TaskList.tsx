@@ -13,7 +13,7 @@ interface Task {
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
-  
+
 function handleCreateNewTask() {
   if (!newTaskTitle) {
     return ''; // definido que se nao tiver task retorne string vazia
@@ -34,7 +34,8 @@ function handleCreateNewTask() {
   }
 
   function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+    const filterTasks = tasks.filter(task => task.id !== id);
+    setTasks(filterTasks);
   }
 
   return (
